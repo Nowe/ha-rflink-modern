@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user":    { "title": "RFLink Verbindung", "data": { "connection_type": "Verbindungstyp" } },
+      "serial":  { "title": "Serielle Verbindung", "data": { "port": "Serieller Port", "wait_for_ack": "Auf Bestätigung warten" } },
+      "tcp":     { "title": "TCP-Verbindung", "data": { "host": "Host", "tcp_port": "Port", "wait_for_ack": "Auf Bestätigung warten", "tcp_keepalive_idle_timer": "Keepalive Idle (s)" } },
+      "options": { "title": "Einstellungen", "data": { "reconnect_interval": "Wiederverbindung (s)", "automatic_add": "Auto-Erkennung", "signal_repetitions": "Signal-Wdh.", "ignore_devices": "Geräte ignorieren" } }
+    },
+    "error": { "no_port": "Bitte Port auswählen.", "no_host": "Bitte Hostname eingeben.", "cannot_connect": "Verbindung fehlgeschlagen.", "unknown": "Unbekannter Fehler." },
+    "abort": { "already_configured": "Bereits konfiguriert." }
+  },
+  "options": {
+    "step": {
+      "init":     { "title": "RFLink Modern", "data": { "menu": "Aktion" } },
+      "settings": { "title": "Allgemeine Einstellungen", "data": { "wait_for_ack": "Auf Bestätigung warten", "reconnect_interval": "Wiederverbindung (s)", "automatic_add": "Auto-Erkennung", "signal_repetitions": "Signal-Wdh.", "ignore_devices": "Geräte ignorieren" } },
+      "add_device":     { "title": "Gerät hinzufügen", "description": "Geräte-ID im RFLink-Format, z.B. `rts_6d1e40_1` oder `newkaku_000001_1`.", "data": { "device_id": "Geräte-ID", "name": "Name", "platform": "Typ" } },
+      "configure_cover": { "title": "Rollladen-Einstellungen", "data": { "cover_type": "Cover-Typ", "travel_time_open": "Fahrzeit ÖFFNEN (s)", "travel_time_close": "Fahrzeit SCHLIESSEN (s)" }, "data_description": { "travel_time_open": "Sekunden von geschlossen nach offen. 0 = kein Positionstracking.", "travel_time_close": "Sekunden von offen nach geschlossen. 0 = kein Positionstracking." } },
+      "configure_binary_sensor": { "title": "Binärsensor-Einstellungen", "data": { "device_class": "Sensortyp", "off_delay": "Auto-OFF Verzögerung (s)" } },
+      "pick_edit_device": { "title": "Gerät bearbeiten", "description": "Wähle ein Gerät zum Bearbeiten.", "data": { "device_to_edit": "Gerät" } },
+      "edit_basic":  { "title": "Gerät bearbeiten", "data": { "name": "Name" } },
+      "edit_cover":  { "title": "Rollladen bearbeiten", "data": { "name": "Name", "cover_type": "Cover-Typ", "travel_time_open": "Fahrzeit ÖFFNEN (s)", "travel_time_close": "Fahrzeit SCHLIESSEN (s)" } },
+      "edit_binary_sensor": { "title": "Binärsensor bearbeiten", "data": { "name": "Name", "device_class": "Sensortyp", "off_delay": "Auto-OFF Verzögerung (s)" } },
+      "remove_device": { "title": "Gerät entfernen", "data": { "device_to_remove": "Gerät" } }
+    },
+    "error": { "no_device_id": "Bitte Geräte-ID eingeben.", "device_exists": "Bereits konfiguriert." }
+  }
+}

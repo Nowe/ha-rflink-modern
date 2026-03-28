@@ -1,0 +1,61 @@
+# ──────────────────────────────────────────────────────────────────────────
+#  Services provided by the RFLink Modern integration.
+#
+#  Visible in:  Developer Tools → Services
+#               Automation / Script editors
+# ──────────────────────────────────────────────────────────────────────────
+
+# ── Structured command (uses the rflink library) ─────────────────────────
+send_command:
+  name: Send device command
+  description: >
+    Send a command to a specific RFLink device.  The rflink library
+    takes care of building the correct protocol frame.
+    Use this for everyday on/off/up/down/stop actions.
+  fields:
+    device_id:
+      name: Device ID
+      description: >
+        The RFLink device ID in protocol_id_switch format.
+        Examples:  newkaku_000001_1,  rts_0a0a0a_0
+      required: true
+      example: "newkaku_000001_1"
+      selector:
+        text:
+    action:
+      name: Action
+      description: >
+        The command to send:
+          • on / off        — switch or light
+          • up / down       — cover open / close
+          • stop            — cover stop
+          • allon / alloff  — group command
+          • set_level_0 … set_level_15  — dimmer level
+      required: true
+      example: "on"
+      selector:
+        text:
+
+# ── Raw protocol string (written directly to serial/TCP) ─────────────────
+send_raw_command:
+  name: Send raw command
+  description: >
+    Write a raw RFLink protocol string directly to the gateway.
+    Use this for pairing, debugging, or any command not covered
+    by the structured send_command service.
+    The string is sent as-is with CRLF termination.
+  fields:
+    command:
+      name: Command
+      description: >
+        The full RFLink protocol string.  Examples:
+          • "10;NewKaku;000001;1;ON;"       — turn on a switch
+          • "10;RTS;0a0a0a;0;UP;"           — open a Somfy RTS shutter
+          • "10;RTS;0a0a0a;0;DOWN;"         — close the shutter
+          • "10;RTS;0a0a0a;0;STOP;"         — stop movement
+          • "10;PAIR;"                       — enter pairing mode
+          • "10;REBOOT;"                     — reboot the gateway
+      required: true
+      example: "10;NewKaku;000001;1;ON;"
+      selector:
+        text:

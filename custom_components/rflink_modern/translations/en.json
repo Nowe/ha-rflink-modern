@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user":    { "title": "RFLink Connection", "data": { "connection_type": "Connection type" } },
+      "serial":  { "title": "Serial Connection", "data": { "port": "Serial port", "wait_for_ack": "Wait for ACK" } },
+      "tcp":     { "title": "TCP Connection", "data": { "host": "Host", "tcp_port": "Port", "wait_for_ack": "Wait for ACK", "tcp_keepalive_idle_timer": "Keepalive idle (s)" } },
+      "options": { "title": "Settings", "data": { "reconnect_interval": "Reconnect interval (s)", "automatic_add": "Auto-discover", "signal_repetitions": "Signal reps", "ignore_devices": "Ignore devices" } }
+    },
+    "error": { "no_port": "Select a serial port.", "no_host": "Enter a hostname.", "cannot_connect": "Connection failed.", "unknown": "Unknown error." },
+    "abort": { "already_configured": "Already configured." }
+  },
+  "options": {
+    "step": {
+      "init":     { "title": "RFLink Modern", "data": { "menu": "Action" } },
+      "settings": { "title": "General Settings", "data": { "wait_for_ack": "Wait for ACK", "reconnect_interval": "Reconnect interval (s)", "automatic_add": "Auto-discover", "signal_repetitions": "Signal reps", "ignore_devices": "Ignore devices" } },
+      "add_device":     { "title": "Add Device", "description": "Device ID in RFLink format, e.g. `rts_6d1e40_1` or `newkaku_000001_1`.", "data": { "device_id": "Device ID", "name": "Name", "platform": "Type" } },
+      "configure_cover": { "title": "Cover Settings", "data": { "cover_type": "Cover type", "travel_time_open": "Travel time OPEN (s)", "travel_time_close": "Travel time CLOSE (s)" }, "data_description": { "travel_time_open": "Seconds from fully closed to fully open. 0 = no position tracking.", "travel_time_close": "Seconds from fully open to fully closed. 0 = no position tracking." } },
+      "configure_binary_sensor": { "title": "Binary Sensor Settings", "data": { "device_class": "Sensor type", "off_delay": "Auto-OFF delay (s)" } },
+      "pick_edit_device": { "title": "Edit Device", "description": "Select a device to edit.", "data": { "device_to_edit": "Device" } },
+      "edit_basic":  { "title": "Edit Device", "data": { "name": "Name" } },
+      "edit_cover":  { "title": "Edit Cover", "data": { "name": "Name", "cover_type": "Cover type", "travel_time_open": "Travel time OPEN (s)", "travel_time_close": "Travel time CLOSE (s)" } },
+      "edit_binary_sensor": { "title": "Edit Binary Sensor", "data": { "name": "Name", "device_class": "Sensor type", "off_delay": "Auto-OFF delay (s)" } },
+      "remove_device": { "title": "Remove Device", "data": { "device_to_remove": "Device" } }
+    },
+    "error": { "no_device_id": "Enter a device ID.", "device_exists": "Already configured." }
+  }
+}
