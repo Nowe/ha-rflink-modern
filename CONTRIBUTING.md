@@ -52,10 +52,3 @@ Please include:
 * Your RFLink firmware version
 * The relevant log output (`grep rflink_modern home-assistant.log`)
 * Steps to reproduce the issue
-
-
-| test | bla |
-| ---- | --- |
-| schaumal |  |
-
-
