@@ -56,15 +56,3 @@ Please include:
 
 <br>
 <br>
-***
-
-### This is a test-edit
-
-| head | head |
-| ---- | ---- |
-| test |  |
-
-![image](assets/image.png)
-
-<br>
-<br>
