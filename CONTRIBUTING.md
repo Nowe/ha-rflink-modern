@@ -25,10 +25,10 @@ pip install homeassistant rflink pytest pytest-homeassistant-custom-component
 
 ## Code Style
 
-- Follow Home Assistant's [development guidelines](https://developers.home-assistant.io/docs/development_guidelines)
-- Use type hints everywhere
-- Document public methods with docstrings
-- Keep imports sorted (stdlib → third-party → local)
+* Follow Home Assistant's [development guidelines](https://developers.home-assistant.io/docs/development_guidelines)
+* Use type hints everywhere
+* Document public methods with docstrings
+* Keep imports sorted (stdlib → third-party → local)
 
 ## Testing
 
@@ -47,7 +47,24 @@ Currently supported: English (`en`), German (`de`).
 ## Reporting Issues
 
 Please include:
-- Your Home Assistant version
-- Your RFLink firmware version
-- The relevant log output (`grep rflink_modern home-assistant.log`)
-- Steps to reproduce the issue
+
+* Your Home Assistant version
+* Your RFLink firmware version
+* The relevant log output (`grep rflink_modern home-assistant.log`)
+* Steps to reproduce the issue
+
+
+<br>
+<br>
+***
+
+### This is a test-edit
+
+| head | head |
+| ---- | ---- |
+| test |  |
+
+![image](assets/image.png)
+
+<br>
+<br>
