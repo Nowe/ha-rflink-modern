@@ -1,0 +1,172 @@
+{
+  "processes": [
+    {
+      "name": "Beitrag leisten (Contribution / Pull-Request-Workflow)",
+      "description": "Ablauf, um Änderungen am Repository ha-rflink-modern einzubringen. Das README verweist dafür auf CONTRIBUTING.md, wo der Ablauf im Detail beschrieben ist.",
+      "occurrences": 2,
+      "sources": [
+        "README.md",
+        "CONTRIBUTING.md"
+      ],
+      "steps": [
+        {
+          "title": "Repository forken",
+          "details": "Fork des Repositorys ha-rflink-modern auf GitHub anlegen."
+        },
+        {
+          "title": "Fork klonen",
+          "details": "git clone https://github.com/YOUR_USERNAME/ha-rflink-modern.git"
+        },
+        {
+          "title": "Feature-Branch erstellen",
+          "details": "git checkout -b feature/my-feature"
+        },
+        {
+          "title": "Entwicklungsumgebung einrichten",
+          "details": "python3 -m venv venv; source venv/bin/activate; pip install homeassistant rflink pytest pytest-homeassistant-custom-component"
+        },
+        {
+          "title": "Änderungen umsetzen",
+          "details": "Home-Assistant-Entwicklungsrichtlinien befolgen, überall Type Hints verwenden, öffentliche Methoden mit Docstrings dokumentieren, Imports sortieren (stdlib → third-party → local)."
+        },
+        {
+          "title": "Testen",
+          "details": "Mit der eigenen Home-Assistant-Instanz testen und pytest tests/ ausführen."
+        },
+        {
+          "title": "Commit und Push",
+          "details": "git push origin feature/my-feature"
+        },
+        {
+          "title": "Pull Request öffnen",
+          "details": "Pull Request gegen das Original-Repository eröffnen."
+        }
+      ]
+    },
+    {
+      "name": "Tests ausführen",
+      "description": "Automatisierte Tests mit Pytest; alle Tests liegen im Ordner tests/. Zusätzlich laufen CI-Workflows (HACS, Hassfest, Tests) unter .github/workflows/.",
+      "occurrences": 3,
+      "sources": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "tests/readme.md"
+      ],
+      "steps": [
+        {
+          "title": "Virtuelle Umgebung anlegen",
+          "details": "python3 -m venv venv und source venv/bin/activate."
+        },
+        {
+          "title": "Dev-Abhängigkeiten installieren",
+          "details": "pip install homeassistant rflink pytest pytest-homeassistant-custom-component"
+        },
+        {
+          "title": "Tests im Ordner tests/ ablegen",
+          "details": "Alle Tests werden im Ordner tests/ gesammelt (Pytest-Test-Suite)."
+        },
+        {
+          "title": "Testlauf starten",
+          "details": "pytest tests/"
+        },
+        {
+          "title": "CI-Prüfung",
+          "details": "GitHub-Workflows in .github/workflows/ führen HACS-, Hassfest-Validierung und Tests aus."
+        }
+      ]
+    },
+    {
+      "name": "Übersetzung hinzufügen",
+      "description": "Ergänzen einer neuen UI-Sprache für die Integration. Unterstützt sind aktuell Englisch und Deutsch; PRs für weitere Sprachen sind erwünscht.",
+      "occurrences": 2,
+      "sources": [
+        "README.md",
+        "CONTRIBUTING.md"
+      ],
+      "steps": [
+        {
+          "title": "Übersetzungsordner öffnen",
+          "details": "custom_components/rflink_modern/translations/ (enthält en.json, de.json); strings.json ist die Quelle der UI-Strings."
+        },
+        {
+          "title": "Vorlage kopieren",
+          "details": "en.json nach <language_code>.json kopieren."
+        },
+        {
+          "title": "Werte übersetzen",
+          "details": "Alle Werte übersetzen, Schlüssel unverändert lassen."
+        },
+        {
+          "title": "Pull Request einreichen",
+          "details": "Neue Sprache per PR beisteuern."
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "name": "RFLink Modern (Projekt ha-rflink-modern)",
+      "pages": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "tests/readme.md",
+        "tests/neuer_test.md"
+      ],
+      "specials": [
+        {
+          "process": "allgemein",
+          "note": "Keine Kunden in der Dokumentation; einzige vergleichbare Entität ist das Projekt selbst (Home-Assistant-Custom-Integration für das RFLink-433-MHz-Gateway, Lizenz Apache 2.0).",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Installation per HACS (Custom Repository als Integration hinzufügen, installieren, HA neu starten) oder manuell durch Kopieren von custom_components/rflink_modern/ nach config/custom_components/ und Neustart; nur auf dieser Seite beschrieben.",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Ersteinrichtung: Settings → Devices & Services → + Add Integration → RFLink Modern; Verbindungstyp Serial (USB, Auto-Erkennung der Ports) oder TCP/Network (ESP-Link, ser2net); Auto-Discover, Signalwiederholungen und Ignore-Liste konfigurieren.",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Cover (Somfy RTS) hinzufügen: Configure → Add device → Device ID aus RFLink-Logs, Typ Cover; Cover-Typ Inverted/Somfy RTS (UP = schließen); getrennte Fahrzeiten für OPEN und CLOSE, da Motoren richtungsabhängig unterschiedlich schnell sind.",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Position wird nur geschätzt; bei direkter Nutzung einer externen Fernbedienung (nicht über HA) kann die Position abweichen – mit dem Slider neu kalibrieren. Bei unbekannter Position wird volle Fahrzeit genutzt und am Endanschlag STOP gesendet.",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Switches und Binary Sensors werden nicht auto-discovered und müssen manuell über Add device angelegt werden; Binary Sensor unterstützt off_delay.",
+          "source": "README.md"
+        },
+        {
+          "process": "allgemein",
+          "note": "Alle Änderungen im Options-Menü (Settings, Add/Edit/Remove device) laden die Integration sofort neu.",
+          "source": "README.md"
+        },
+        {
+          "process": "Übersetzung hinzufügen",
+          "note": "Schlüssel müssen unverändert bleiben, nur Werte übersetzen; aktuell unterstützt: en, de.",
+          "source": "CONTRIBUTING.md"
+        },
+        {
+          "process": "Beitrag leisten (Contribution / Pull-Request-Workflow)",
+          "note": "Issue-Meldungen müssen HA-Version, RFLink-Firmware-Version, relevante Logs (grep rflink_modern home-assistant.log) und Reproduktionsschritte enthalten.",
+          "source": "CONTRIBUTING.md"
+        },
+        {
+          "process": "Tests ausführen",
+          "note": "Die Seite enthält nur einen Platzhalter-Testeintrag ohne inhaltliche Prozessbeschreibung.",
+          "source": "tests/neuer_test.md"
+        }
+      ]
+    }
+  ],
+  "summary": "Die vier Seiten dokumentieren ein Open-Source-Softwareprojekt (RFLink Modern, eine Home-Assistant-Integration für das RFLink-433-MHz-Gateway), keine Kunden. Seitenübergreifend wiederkehrend sind drei Prozesse: Beitrag leisten per Fork/Branch/Pull Request (README, CONTRIBUTING), Tests mit Pytest im Ordner tests/ inkl. CI (README, CONTRIBUTING, tests/readme.md) sowie das Hinzufügen von Übersetzungen (README, CONTRIBUTING). Installation, Ersteinrichtung und Geräteverwaltung (v. a. Cover mit zeitbasierter Positionsschätzung) sind nur im README beschrieben und daher als Besonderheiten des Projekts erfasst. tests/neuer_test.md ist ein inhaltsloser Testeintrag.",
+  "analyzedAt": "2026-10-12T13:50:18.123Z",
+  "pagesUsed": 4
+}
