@@ -1,3 +1,5 @@
+Test
+
 # RFLink Modern
 
 [![HACS Validation](https://github.com/Nowe/ha-rflink-modern/actions/workflows/hacs.yml/badge.svg)](https://github.com/Nowe/ha-rflink-modern/actions/workflows/hacs.yml)
